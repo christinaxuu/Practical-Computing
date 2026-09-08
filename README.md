@@ -1,6 +1,6 @@
 # hds-practical
 
-A small reproducible analysis of toy patient data, built for Lab 1 of Applied Computing for Health Data Science Undergraduate Version.
+A small reproducible analysis of toy patient data, built for Lab 1 of Applied Computing for Health Data Science (Undergraduate Version).
 
 ## Project Structure
 
@@ -23,22 +23,30 @@ This project uses conda/mamba to manage a reproducible Python environment.
 
 1. Clone this repository:
 
-   git clone https://github.com/christinaxuu/Practical-Computing.git
-   cd Practical-Computing
+```bash
+git clone https://github.com/christinaxuu/Practical-Computing.git
+cd Practical-Computing
+```
 
 2. Create the environment from environment.yml:
 
-   mamba env create -f environment.yml
+```bash
+mamba env create -f environment.yml
+```
 
 3. Activate the environment:
 
-   conda activate hds-practical
+```bash
+conda activate hds-practical
+```
 
 ## Running the Analysis
 
 From the project root, run:
 
-   python scripts/analyze.py
+```bash
+python scripts/analyze.py
+```
 
 This reads data/patients.csv and prints summary statistics (count, mean, std, etc.) plus mean age grouped by site.
 
