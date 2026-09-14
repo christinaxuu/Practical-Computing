@@ -1,12 +1,37 @@
-# hds-practical
+# Applied Computing for Health Data Science — Labs
 
-A small reproducible analysis of toy patient data, built for Lab 1 of Applied Computing for Health Data Science (Undergraduate Version).
+Coursework for Applied Computing for Health Data Science (PUBH 4201).
 
-See [`lab2-analysis-notebook/`](lab2-analysis-notebook/) for Lab 2 (Framingham Heart Study analysis notebook).
+## Labs
 
-## Project Structure
+| Lab | Description | Link |
+|---|---|---|
+| Lab 1 | Reproducible analysis of toy patient data | [root of this repo](#lab-1-toy-patient-data-analysis) (below) |
+| Lab 2 | Framingham Heart Study analysis notebook | [`lab2-analysis-notebook/`](lab2-analysis-notebook/) |
 
-hds-practical/
+---
+
+## Lab 2: Framingham Heart Study Analysis Notebook
+
+**Start here:** [`lab2-analysis-notebook/README.md`](lab2-analysis-notebook/README.md)
+
+**Notebook:** [`lab2-analysis-notebook/notebook/framingham_analysis.ipynb`](lab2-analysis-notebook/notebook/framingham_analysis.ipynb)
+**Rendered export:** [`lab2-analysis-notebook/notebook/framingham_analysis.html`](lab2-analysis-notebook/notebook/framingham_analysis.html)
+
+Analyzes 10-year coronary heart disease (CHD) risk by age and sex using the
+Framingham Heart Study teaching dataset, loaded directly from its public
+source. See the lab's own README for setup and run instructions.
+
+---
+
+## Lab 1: Toy Patient Data Analysis
+
+A small reproducible analysis of toy patient data.
+
+### Project Structure
+
+```
+.
 ├── README.md
 ├── .gitignore
 ├── environment.yml
@@ -15,9 +40,11 @@ hds-practical/
 ├── data/
 │   ├── patients.csv
 │   └── patients_by_age.csv
-└── AI_USAGE.md
+├── AI_USAGE.md
+└── lab2-analysis-notebook/   (see Lab 2 above)
+```
 
-## Setup / Installation / Getting Started
+### Setup / Installation / Getting Started
 
 This project uses conda/mamba to manage a reproducible Python environment.
 
@@ -42,7 +69,7 @@ mamba env create -f environment.yml
 conda activate hds-practical
 ```
 
-## Running the Analysis
+### Running the Analysis
 
 From the project root, run:
 
@@ -52,6 +79,6 @@ python scripts/analyze.py
 
 This reads data/patients.csv and prints summary statistics (count, mean, std, etc.) plus mean age grouped by site.
 
-## Data
+### Data
 
 data/patients.csv and data/patients_by_age.csv are small, fake/toy patient records (patient ID, age, site) created for practice — not real patient data.
