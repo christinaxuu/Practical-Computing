@@ -1,2 +1,3 @@
 *.log
 secrets.txt
+lab2-analysis-notebook/data/framingham.csv
