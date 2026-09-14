@@ -2,6 +2,8 @@
 
 A small reproducible analysis of toy patient data, built for Lab 1 of Applied Computing for Health Data Science (Undergraduate Version).
 
+See [`lab2-analysis-notebook/`](lab2-analysis-notebook/) for Lab 2 (Framingham Heart Study analysis notebook).
+
 ## Project Structure
 
 hds-practical/

@@ -1,2 +1,4 @@
 *.log
 secrets.txt
+lab2-analysis-notebook/data/framingham.csv
+lab2-analysis-notebook/notebook/.ipynb_checkpoints/
