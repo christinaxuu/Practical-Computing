@@ -8,6 +8,19 @@ Coursework for Applied Computing for Health Data Science (PUBH 4201).
 |---|---|---|
 | Lab 1 | Reproducible analysis of toy patient data | [root of this repo](#lab-1-toy-patient-data-analysis) (below) |
 | Lab 2 | Framingham Heart Study analysis notebook | [`lab2-analysis-notebook/`](lab2-analysis-notebook/) |
+| Lab 3 | Regex vs. AI-assisted cleaning of messy clinical data | [`lab3-parsing-messy-data/`](lab3-parsing-messy-data/) |
+
+---
+
+## Lab 3: Parsing Messy Health Data
+
+**Start here:** [`lab3-parsing-messy-data/README.md`](lab3-parsing-messy-data/README.md)
+
+**Regex script:** [`lab3-parsing-messy-data/clean_regex.py`](lab3-parsing-messy-data/clean_regex.py)
+**AI-assisted script:** [`lab3-parsing-messy-data/ai_clean.py`](lab3-parsing-messy-data/ai_clean.py)
+**Comparison & failure-mode analysis:** [`lab3-parsing-messy-data/COMPARISON.md`](lab3-parsing-messy-data/COMPARISON.md)
+
+Cleans a synthetic messy clinical dataset (60 records) two ways: a deterministic regex script and an AI-assisted pass making explicit judgment calls on ambiguous cases (date format ambiguity, blank vs. explicit "unknown" values, unit conversion precision). Compares where the two methods agreed and disagreed, referencing specific records, and documents concrete failure modes. See the lab's own README for setup and run instructions.
 
 ---
 
@@ -41,7 +54,8 @@ A small reproducible analysis of toy patient data.
 │   ├── patients.csv
 │   └── patients_by_age.csv
 ├── AI_USAGE.md
-└── lab2-analysis-notebook/   (see Lab 2 above)
+├── lab2-analysis-notebook/   (see Lab 2 above)
+└── lab3-parsing-messy-data/  (see Lab 3 above)
 ```
 
 ### Setup / Installation / Getting Started
