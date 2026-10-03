@@ -4,7 +4,7 @@ import csv
 SITE_RE = re.compile(r"site[\s_-]*([abc])", re.IGNORECASE)
 SEX_MAP = {"m": "M", "male": "M", "f": "F", "female": "F", "u": "U", "unknown": "U"}
 MMOL_TO_MGDL = 18.0  # AI used the common rounded factor, not the precise 18.0182
-DDMM_AMBIGUOUS = {"06.07.12", "09.06.98", "02.08.89", "02.09.06"}  # AI's judgment call: interpret as DD.MM
+DDMM_AMBIGUOUS = {"07.09.61", "06.07.96", "09.12.58", "02.11.98", "06.07.12", "04.12.80"}  # AI's judgment call: interpret as DD.MM
 
 MONTHS = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06",
           "Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
