@@ -54,3 +54,44 @@ them.
 **Missing stage in `site_stage_counts`.** Nothing filters on stage, so
 patients with no recorded stage stay in the result as their own NULL-stage
 group. `COUNT(DISTINCT patient_id)` counts each patient once.
+
+## Task 3: Building the feature table
+
+`build_feature_table.py` combines SQL and Python:
+
+1. SQL (`patient_base` in `queries.sql`): patients LEFT JOIN samples gives
+   sex, age, stage, site, and TMB for all 566 patients.
+2. SQL (`gene_counts`): the long per-patient, per-gene counts (2,830 rows).
+   The grain is fixed in SQL before reshaping: `GROUP BY patient_id,
+   gene_symbol` adds up several mutations in one gene into a single count,
+   so a patient with 3 EGFR mutations still ends up as one row.
+3. Python (pandas `pivot`): reshapes long to wide, one column per gene.
+   Done in Python, not by pivoting in SQL.
+4. Python: merges the two on `patient_id` (`validate="one_to_one"`), applies
+   the missing-data rule below, and writes `output/feature_table.tsv`.
+
+The script asserts the patient count at every step. Output from my run:
+
+    patients table: 566 patients
+    max samples per patient: 1
+    after patients LEFT JOIN samples: 566 rows, 566 unique patients
+    gene_counts query: 2830 rows (expected 566 x 5 = 2830)
+    after merging gene counts: 566 rows
+
+566 patients went in and 566 came out, so no one was lost in the joins.
+
+## Task 4: Missing data
+
+| Gap | How many | What I did | Why |
+|---|---|---|---|
+| Missing `sex` | 52 | Kept the patient, left as `NA` | No basis for guessing. These 52 are missing sex, age, and stage together, so their clinical record is absent. Dropping them would also drop their real sequencing data |
+| Missing `age_at_diagnosis` | 71 (the 52 above + 19 more) | Kept, left as `NA` | Filling in a mean or median would invent values that look real |
+| Missing `stage` | 54 (the 52 above + 2 more) | Kept, left as `NA` | Same reason. Query 2 also keeps them as their own group |
+| No mutation in a given gene | most patients (e.g. 275 of the 562 tumors with mutation calls have no protein-altering TP53 mutation) | `0` | The tumor was sequenced and has mutation calls, but none are protein-altering in that gene. That is a real, observed zero |
+| Tumor with no mutation calls at all | 4 (TCGA-64-1678, TCGA-69-8453, TCGA-78-7143, TCGA-86-A4D0) | Gene counts set to `NA`, TMB recoded from 0.0 to `NA`, and flagged with `has_mutation_calls = False` | A lung adenocarcinoma with zero mutations of any kind, not even Silent, more likely means the calls are missing than that the tumor is mutation-free. A 0 would claim "sequenced, nothing found," which the data can't support. TMB is calculated from those same calls, so it is NA too. The patients themselves are kept |
+
+**Zero vs. missing.** `0` means "we looked and found no protein-altering
+mutation in this gene." `NA` means "not recorded, or can't be determined."
+The gene count columns use 0 for the first case and NA only for the 4 tumors
+with no calls. The clinical columns only use NA. No NA was replaced with 0
+or with a made-up value.
