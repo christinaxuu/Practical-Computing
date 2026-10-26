@@ -35,3 +35,21 @@ LEFT JOIN samples AS s
     ON s.patient_id = p.patient_id
 GROUP BY s.tissue_source_site, p.stage
 ORDER BY s.tissue_source_site, p.stage;
+
+-- name: patient_base
+-- One row per patient: clinical columns plus the sample's site and TMB.
+-- Only one row per patient because every patient has exactly one sample
+-- (build_feature_table.py checks this). has_mutation_calls = 1 if the tumor
+-- has at least one mutation of any type, Silent included.
+SELECT
+    p.patient_id,
+    p.sex,
+    p.age_at_diagnosis,
+    p.stage,
+    s.tissue_source_site,
+    s.tmb_nonsynonymous,
+    EXISTS (SELECT 1 FROM mutations AS m WHERE m.sample_id = s.sample_id) AS has_mutation_calls
+FROM patients AS p
+LEFT JOIN samples AS s
+    ON s.patient_id = p.patient_id
+ORDER BY p.patient_id;
