@@ -25,6 +25,7 @@ checks), not guessed from column names.
 
 **Relationships**
 
+    patients 1 --- 1 samples 1 --- 0..many mutations many --- 1 genes
 
 - **patients → samples:** the schema allows one-to-many, but in this data it
   is one-to-one. Every one of the 566 patients has exactly 1 sample (checked
