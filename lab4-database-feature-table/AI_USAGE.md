@@ -1,6 +1,6 @@
 # AI Usage — Lab 4
 
-**Model used:** Claude (Sonnet 5), via Claude Code
+**Model used:** Claude Opus 5.5 (medium effort), via Claude Code
 
 **What I used it for:** Claude walked me through the lab step by step. It
 wrote the SQL in `queries.sql`, the `build_feature_table.py` script, and
