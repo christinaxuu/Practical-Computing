@@ -95,3 +95,31 @@ mutation in this gene." `NA` means "not recorded, or can't be determined."
 The gene count columns use 0 for the first case and NA only for the 4 tumors
 with no calls. The clinical columns only use NA. No NA was replaced with 0
 or with a made-up value.
+
+## How to run
+
+**Needs:** the conda environment from the repo's root `environment.yml`
+(Python 3.12 + pandas). `sqlite3` comes with Python.
+
+    conda activate hds-practical
+    python3 lab4-database-feature-table/build_feature_table.py
+
+Works from the repo root or from inside this folder.
+
+- **Expects:** `data/cohort.db` and `queries.sql` next to the script. The
+  database is opened read-only.
+- **Produces:** `output/feature_table.tsv` (566 rows, one per patient) and
+  `output/site_stage_counts.tsv` (Task 2, query 2). Prints the patient count
+  after every join and stops with an error if any count is wrong.
+- **SQL only:** `sqlite3 data/cohort.db < queries.sql` runs the queries
+  directly.
+
+## Files
+
+- `queries.sql`: all SQL queries, each labeled with `-- name:`
+- `build_feature_table.py`: runs the queries, reshapes to wide format, checks row counts, writes the outputs
+- `output/feature_table.tsv`: the final feature table
+- `output/site_stage_counts.tsv`: patients per tissue source site per stage
+- `DATA_DICTIONARY.md`: every column in the feature table
+- `AI_USAGE.md`: how AI was used and how I checked its SQL
+- `data/cohort.db`, `data/SOURCE.md`: the course-provided database and where it came from

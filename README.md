@@ -9,6 +9,15 @@ Coursework for Applied Computing for Health Data Science (PUBH 4201).
 | Lab 1 | Reproducible analysis of toy patient data | [root of this repo](#lab-1-toy-patient-data-analysis) (below) |
 | Lab 2 | Framingham Heart Study analysis notebook | [`lab2-analysis-notebook/`](lab2-analysis-notebook/) |
 | Lab 3 | Regex vs. AI-assisted cleaning of messy clinical data | [`lab3-parsing-messy-data/`](lab3-parsing-messy-data/) |
+| Lab 4 | Database-driven feature table from TCGA lung adenocarcinoma data | [`lab4-database-feature-table/`](lab4-database-feature-table/) |
+
+---
+
+## Lab 4: Database-Driven Feature Table
+
+**Start here:** [`lab4-database-feature-table/README.md`](lab4-database-feature-table/README.md)
+
+Queries a SQLite database of real TCGA lung adenocarcinoma sequencing data (566 patients) and builds a one-row-per-patient feature table with clinical columns, tumor mutation burden, and protein-altering mutation counts for TP53, KRAS, EGFR, STK11, and KEAP1. See the lab's own README for how to run it.
 
 ---
 
