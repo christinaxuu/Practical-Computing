@@ -33,3 +33,24 @@ checks), not guessed from column names.
 - **samples → mutations:** one-to-many. 4 samples have no mutations at all.
 - **genes → mutations:** one-to-many. Each mutation is in exactly one gene.
 - `PRAGMA foreign_key_check` returns nothing, so there are no orphan rows.
+
+## Task 2: SQL queries and row counts
+
+Both queries are in `queries.sql`.
+
+| Query | Expected rows | Actual rows | Match? |
+|---|---|---|---|
+| `gene_counts`: protein-altering mutations per patient per gene | 2,830 (566 patients × 5 genes; every patient gets a row for every gene, including zero counts) | 2,830 | yes |
+| `site_stage_counts`: patients per tissue source site per stage | At most 340 (34 sites × 10 stage values, counting missing stage as one). Fewer in practice, since most sites don't see every stage. Counts must add up to 566 | 142 rows, adding up to 566 patients | yes |
+
+**Why the filters in `gene_counts` go in `ON`, not `WHERE` (Week 8, habit 2).**
+The query builds the full patient × gene grid first, then LEFT JOINs
+mutations with the gene match and `variant_classification <> 'Silent'` in
+the `ON` clause. I also ran the same query with those filters in `WHERE`
+instead: it returned **700** rows instead of 2,830. The `WHERE` version
+throws away every patient–gene pair with zero mutations, which is most of
+them.
+
+**Missing stage in `site_stage_counts`.** Nothing filters on stage, so
+patients with no recorded stage stay in the result as their own NULL-stage
+group. `COUNT(DISTINCT patient_id)` counts each patient once.
