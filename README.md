@@ -10,6 +10,15 @@ Coursework for Applied Computing for Health Data Science (PUBH 4201).
 | Lab 2 | Framingham Heart Study analysis notebook | [`lab2-analysis-notebook/`](lab2-analysis-notebook/) |
 | Lab 3 | Regex vs. AI-assisted cleaning of messy clinical data | [`lab3-parsing-messy-data/`](lab3-parsing-messy-data/) |
 | Lab 4 | Database-driven feature table from TCGA lung adenocarcinoma data | [`lab4-database-feature-table/`](lab4-database-feature-table/) |
+| Lab 5 | Scalable workflow with Snakemake linking data cleaning and cohort queries | [`lab5-scalable-workflow/`](lab5-scalable-workflow/) |
+
+---
+
+## Lab 5: Scalable Analysis Workflow
+
+**Start here:** [`lab5-scalable-workflow/README.md`](lab5-scalable-workflow/README.md)
+
+Creates a Snakemake DAG that chains the Lab 3 messy-sample cleaning step, the Lab 4 patient-level feature extraction, and a final merge plus text summary report. See the lab README for the clean run and the partial rerun proof.
 
 ---
 

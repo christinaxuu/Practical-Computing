@@ -1,0 +1,73 @@
+Assuming unrestricted shared filesystem usage.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-09 19:26:29
+  Workflow ID: cb6e3638-557e-4756-9819-cd2afd80c8c0
+  Platform: macOS-15.6.1-arm64-arm-64bit
+  Host: Christinas-MacBook-Pro.local
+  User: christinaxu
+  Snakemake version: 9.27.1
+  Python version: 3.12.14 (main, Sep  3 2026, 03:46:19) [Clang 21.1.8 ]
+  Command: /opt/homebrew/Caskroom/miniforge/base/envs/hds-practical/bin/snakemake --cores 1 -n --forcerun clean_samples results/summary_report.md
+  Snakefile: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow/Snakefile
+  Base directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Run directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Working directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Config file(s): []
+  Config MD5: 99914b932bd37a50b983c5e7c90ae93b
+
+Building DAG of jobs...
+Job stats:
+job               count
+--------------  -------
+clean_samples         1
+combine_tables        1
+summary_report        1
+all                   1
+total                 4
+
+
+[Mon Nov  9 19:26:29 2026]
+rule clean_samples:
+    input: ../lab3-parsing-messy-data/data/messy_samples.csv
+    output: results/clean_samples.tsv
+    jobid: 0
+    reason: Forced execution
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Mon Nov  9 19:26:29 2026]
+rule combine_tables:
+    input: results/clean_samples.tsv, results/patient_features.tsv
+    output: results/combined_table.tsv
+    jobid: 3
+    reason: Input files updated by another job: results/clean_samples.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Mon Nov  9 19:26:29 2026]
+rule summary_report:
+    input: results/combined_table.tsv
+    output: results/summary_report.md
+    jobid: 2
+    reason: Input files updated by another job: results/combined_table.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Mon Nov  9 19:26:29 2026]
+rule all:
+    input: results/summary_report.md
+    jobid: 1
+    reason: Input files updated by another job: results/summary_report.md
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+Job stats:
+job               count
+--------------  -------
+clean_samples         1
+combine_tables        1
+summary_report        1
+all                   1
+total                 4
+
+Reasons:
+    (check individual jobs above for details)
+    forced:
+        clean_samples
+    input files updated by another job:
+        all, combine_tables, summary_report
+This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.

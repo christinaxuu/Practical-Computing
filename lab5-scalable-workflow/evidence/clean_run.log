@@ -1,0 +1,21 @@
+Assuming unrestricted shared filesystem usage.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-09 19:26:28
+  Workflow ID: d0c7ccd4-ead7-4d86-9dc1-26a333a49006
+  Platform: macOS-15.6.1-arm64-arm-64bit
+  Host: Christinas-MacBook-Pro.local
+  User: christinaxu
+  Snakemake version: 9.27.1
+  Python version: 3.12.14 (main, Sep  3 2026, 03:46:19) [Clang 21.1.8 ]
+  Command: /opt/homebrew/Caskroom/miniforge/base/envs/hds-practical/bin/snakemake --cores 1 --printshellcmds results/summary_report.md
+  Snakefile: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow/Snakefile
+  Base directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Run directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Working directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
+  Config file(s): []
+  Config MD5: 99914b932bd37a50b983c5e7c90ae93b
+
+Building DAG of jobs...
+Nothing to be done (all requested files are present and up to date).
