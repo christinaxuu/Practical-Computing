@@ -1,0 +1,61 @@
+sample_id	patient_name	dob_clean	sex_clean	site_clean	glucose_mgdl	glucose_flag	patient_id	sex	age_at_diagnosis	stage	tissue_source_site	tmb_nonsynonymous	has_mutation_calls
+S0001	A. Nguyen	1962-07-09	F	Site B	145.9	NA	TCGA-05-4244	male	70.0	IV	Indivumed	6.4	1
+S0002	T. Patel	1974-12-16	M	Site C	146.1	NA	TCGA-05-4249	male	67.0	IB	Indivumed	10.0	1
+S0004	A. Patel	1957-02-27	F	Site B	120.0	NA	TCGA-05-4382	male	68.0	IB	Indivumed	51.73333333	1
+S0005	B. Martinez	1997-12-02	M	Site B	138.3	NA	TCGA-05-4384	male	66.0	IIIA	Indivumed	3.966666667	1
+S0007	T. Martinez	1969-09-04	U	Site A	206.0	NA	TCGA-05-4390	female	58.0	IB	Indivumed	17.33333333	1
+S0008	K. Davis	1999-08-20	F	Site C	229.3	NA	TCGA-05-4395	male	76.0	IIIB	Indivumed	7.7	1
+S0010	A. Martinez	1951-10-01	F	Site C	215.2	NA	TCGA-05-4397	male	65.0	IIB	Indivumed	24.86666667	1
+S0011	B. Davis	1961-07-09	M	Site A	2973.0	NA	TCGA-05-4398	female	47.0	IIIB	Indivumed	22.36666667	1
+S0012	T. Johnson	1996-06-07	U	Site A	110.4	NA	TCGA-05-4402	female	57.0	IV	Indivumed	4.033333333	1
+S0013	A. Patel	1952-10-26	F	Site B	2032.5	NA	TCGA-05-4403	male	76.0	IB	Indivumed	4.166666667	1
+S0014	K. Kim	1958-09-12	F	Site B	144.0	NA	TCGA-05-4405	female	74.0	IB	Indivumed	12.16666667	1
+S0015	B. Patel	1998-02-11	M	Site B	1855.9	NA	TCGA-05-4410	male	62.0	IB	Indivumed	33.8	1
+S0016	A. Davis	1958-05-15	U	Site B	157.4	NA	TCGA-05-4415	male	57.0	IIIB	Indivumed	6.233333333	1
+S0017	K. Nguyen	2015-07-16	U	Site A	123.4	NA	TCGA-05-4417	female	51.0	IB	Indivumed	9.633333333	1
+S0018	J. Smith	1957-03-10	F	Site B	82.2	NA	TCGA-05-4418	male	69.0	IIIA	Indivumed	8.233333333	1
+S0020	B. Smith	2000-07-05	F	Site B	108.4	NA	TCGA-05-4422	male	68.0	IB	Indivumed	1.333333333	1
+S0021	K. Davis	2004-11-16	M	Site C	88.6	NA	TCGA-05-4424	male	70.0	IIB	Indivumed	22.53333333	1
+S0022	M. Johnson	2006-11-25	U	Site A	233.0	NA	TCGA-05-4425	female	70.0	IV	Indivumed	1.333333333	1
+S0023	S. Lee	1999-06-30	M	Site A	83.5	NA	TCGA-05-4426	male	71.0	IB	Indivumed	1.466666667	1
+S0024	S. Johnson	1953-07-31	F	Site C	114.9	NA	TCGA-05-4427	female	65.0	IIB	Indivumed	31.66666667	1
+S0025	M. Lee	1965-11-19	M	Site A	202.6	NA	TCGA-05-4430	female	59.0	IB	Indivumed	8.733333333	1
+S0026	J. Garcia	1953-06-22	F	Site A	3909.9	NA	TCGA-05-4432	male	66.0	IIB	Indivumed	17.83333333	1
+S0027	T. Johnson	1956-03-24	F	Site C	161.7	NA	TCGA-05-4433	male	82.0	IB	Indivumed	1.1	1
+S0028	S. Smith	1988-12-26	F	Site B	179.1	NA	TCGA-05-4434	female	67.0	IV	Indivumed	1.466666667	1
+S0030	M. Kim	1984-01-06	M	Site B	168.6	NA	TCGA-05-5425	male	68.0	IIB	Indivumed	17.96666667	1
+S0031	K. Brown	1995-11-11	M	Site C	85.3	NA	TCGA-05-5428	male	57.0	IIA	Indivumed	11.7	1
+S0032	J. SMITH	1992-08-17	U	Site B	229.5	NA	TCGA-05-5429	male	60.0	IIIA	Indivumed	1.133333333	1
+S0033	B. Kim	2012-06-07	M	Site B	114.9	NA	TCGA-05-5715	female	69.0	IB	Indivumed	3.533333333	1
+S0034	K. Martinez	1995-04-15	U	Site A	3673.9	NA	TCGA-17-Z000	NA	NA	NA	Washington University	3.866666667	1
+S0035	K. Patel	1956-12-13	F	Site A	130.5	NA	TCGA-17-Z001	NA	NA	NA	Washington University	6.7	1
+S0037	T. Kim	2015-11-28	U	Site A	2146.0	NA	TCGA-17-Z003	NA	NA	NA	Washington University	7.833333333	1
+S0038	K. Lee	1997-12-02	U	Site B	171.6	NA	TCGA-17-Z004	NA	NA	NA	Washington University	0.666666667	1
+S0039	R. Patel	1980-04-12	M	Site C	4346.0	flagged(*)	TCGA-17-Z005	NA	NA	NA	Washington University	3.3	1
+S0040	R. Patel	2008-06-21	M	Site A	105.9	NA	TCGA-17-Z007	NA	NA	NA	Washington University	2.366666667	1
+S0041	K. Nguyen	1965-01-20	M	Site A	89.5	NA	TCGA-17-Z009	NA	NA	NA	Washington University	1.666666667	1
+S0042	M. Garcia	2006-04-10	F	Site C	209.0	flagged(*)	TCGA-17-Z010	NA	NA	NA	Washington University	8.2	1
+S0043	B. Davis	1951-02-19	U	Site A	148.0	NA	TCGA-17-Z011	NA	NA	NA	Washington University	3.466666667	1
+S0044	S. Martinez	1998-04-13	U	Site B	218.6	NA	TCGA-17-Z013	NA	NA	NA	Washington University	1.933333333	1
+S0045	K. Martinez	1984-01-01	M	Site B	223.2	NA	TCGA-17-Z014	NA	NA	NA	Washington University	11.5	1
+S0046	S. DAVIS	1967-02-21	F	Site C	143.2	NA	TCGA-17-Z015	NA	NA	NA	Washington University	15.63333333	1
+S0048	M. Garcia	1978-04-23	M	Site A	1962.2	NA	TCGA-17-Z017	NA	NA	NA	Washington University	6.7	1
+S0049	M. Nguyen	1966-02-05	M	Site C	166.1	NA	TCGA-17-Z018	NA	NA	NA	Washington University	7.8	1
+S0050	K. Garcia	2001-07-02	U	Site B	149.3	NA	TCGA-17-Z019	NA	NA	NA	Washington University	0.1	1
+S0052	M. Davis	1989-09-20	U	Site A	172.4	NA	TCGA-17-Z021	NA	NA	NA	Washington University	5.0	1
+S0053	B. Lee	1999-07-10	M	Site A	2585.6	NA	TCGA-17-Z022	NA	NA	NA	Washington University	36.1	1
+S0054	M. Nguyen	2006-01-28	U	Site A	168.0	NA	TCGA-17-Z023	NA	NA	NA	Washington University	12.06666667	1
+S0055	S. Brown	2011-10-14	U	Site A	2884.7	NA	TCGA-17-Z025	NA	NA	NA	Washington University	7.666666667	1
+S0056	A. Garcia	2010-06-30	M	Site B	77.2	NA	TCGA-17-Z026	NA	NA	NA	Washington University	29.16666667	1
+S0057	K. Garcia	1986-08-20	F	Site C	88.8	NA	TCGA-17-Z027	NA	NA	NA	Washington University	2.733333333	1
+S0058	A. Brown	1972-08-23	F	Site C	142.8	NA	TCGA-17-Z028	NA	NA	NA	Washington University	14.86666667	1
+S0059	K. Brown	1968-04-06	M	Site A	2682.9	NA	TCGA-17-Z030	NA	NA	NA	Washington University	17.5	1
+S0060	A. Davis	1970-02-27	U	Site A	186.6	NA	TCGA-17-Z031	NA	NA	NA	Washington University	69.53333333	1
+s-0003	R. Martinez	1953-11-24	F	Site B	84.2	NA	TCGA-05-4250	female	79.0	IIIA	Indivumed	10.5	1
+s-0006	R. Kim	1968-12-05	F	Site C	2881.1	NA	TCGA-05-4389	male	70.0	IA	Indivumed	7.033333333	1
+s-0009	S. Davis	1995-07-19	M	Site C	185.0	NA	TCGA-05-4396	male	76.0	IIIB	Indivumed	43.26666667	1
+s-0019	B. Kim	2000-09-16	M	Site A	190.6	NA	TCGA-05-4420	male	41.0	IB	Indivumed	8.566666667	1
+s-0029	M. Johnson	2009-08-04	F	Site C	222.6	NA	TCGA-05-5423	male	65.0	IIB	Indivumed	4.6	1
+s-0036	T. Johnson	1987-04-21	U	Site C	145.6	NA	TCGA-17-Z002	NA	NA	NA	Washington University	0.433333333	1
+s-0047	M. Kim	1977-06-21	U	Site B	2983.8	NA	TCGA-17-Z016	NA	NA	NA	Washington University	9.033333333	1
+s-0051	K. Garcia	2011-08-02	M	Site A	216.0	NA	TCGA-17-Z020	NA	NA	NA	Washington University	4.066666667	1

@@ -1,0 +1,37 @@
+rule all:
+    input:
+        "results/summary_report.md"
+
+rule clean_samples:
+    input:
+        "../lab3-parsing-messy-data/data/messy_samples.csv"
+    output:
+        "results/clean_samples.tsv"
+    shell:
+        "python3 scripts/clean_samples.py --input {input} --output {output}"
+
+rule patient_features:
+    input:
+        db = "../lab4-database-feature-table/data/cohort.db",
+        sql = "../lab4-database-feature-table/queries.sql"
+    output:
+        "results/patient_features.tsv"
+    shell:
+        "python3 scripts/build_patient_features.py --db {input.db} --sql {input.sql} --output {output}"
+
+rule combine_tables:
+    input:
+        samples = rules.clean_samples.output,
+        features = rules.patient_features.output
+    output:
+        "results/combined_table.tsv"
+    shell:
+        "python3 scripts/build_combined_table.py --samples {input.samples} --features {input.features} --output {output}"
+
+rule summary_report:
+    input:
+        rules.combine_tables.output
+    output:
+        "results/summary_report.md"
+    shell:
+        "python3 scripts/summarize.py --input {input} --output {output}"
