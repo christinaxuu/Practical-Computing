@@ -2,14 +2,14 @@ Assuming unrestricted shared filesystem usage.
 
 SNAKEMAKE
 =========
-  Date: 2026-11-09 19:26:28
-  Workflow ID: d0c7ccd4-ead7-4d86-9dc1-26a333a49006
+  Date: 2026-11-11 01:31:37
+  Workflow ID: 3352926b-4def-40a0-acdf-d6bc8e563691
   Platform: macOS-15.6.1-arm64-arm-64bit
   Host: Christinas-MacBook-Pro.local
   User: christinaxu
   Snakemake version: 9.27.1
   Python version: 3.12.14 (main, Sep  3 2026, 03:46:19) [Clang 21.1.8 ]
-  Command: /opt/homebrew/Caskroom/miniforge/base/envs/hds-practical/bin/snakemake --cores 1 --printshellcmds results/summary_report.md
+  Command: /opt/homebrew/Caskroom/miniforge/base/envs/hds-practical/bin/snakemake --cores 1
   Snakefile: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow/Snakefile
   Base directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
   Run directory: /Users/christinaxu/Practical-Computing/lab5-scalable-workflow
@@ -18,4 +18,82 @@ SNAKEMAKE
   Config MD5: 99914b932bd37a50b983c5e7c90ae93b
 
 Building DAG of jobs...
-Nothing to be done (all requested files are present and up to date).
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+clean_samples           1
+patient_features        1
+combine_tables          1
+summary_report          1
+all                     1
+total                   5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:31:38 2026]
+localrule clean_samples:
+    input: ../lab3-parsing-messy-data/data/messy_samples.csv
+    output: results/clean_samples.tsv
+    jobid: 3
+    reason: Missing output files: results/clean_samples.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:31:38 2026]
+Finished jobid: 3 (Rule: clean_samples)
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:31:38 2026]
+localrule patient_features:
+    input: ../lab4-database-feature-table/data/cohort.db, ../lab4-database-feature-table/queries.sql
+    output: results/patient_features.tsv
+    jobid: 4
+    reason: Missing output files: results/patient_features.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:31:41 2026]
+Finished jobid: 4 (Rule: patient_features)
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:31:41 2026]
+localrule combine_tables:
+    input: results/clean_samples.tsv, results/patient_features.tsv
+    output: results/combined_table.tsv
+    jobid: 2
+    reason: Missing output files: results/combined_table.tsv; Input files updated by another job: results/patient_features.tsv, results/clean_samples.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:31:42 2026]
+Finished jobid: 2 (Rule: combine_tables)
+3 of 5 steps (60%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:31:42 2026]
+localrule summary_report:
+    input: results/combined_table.tsv
+    output: results/summary_report.md
+    jobid: 1
+    reason: Missing output files: results/summary_report.md; Input files updated by another job: results/combined_table.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:31:42 2026]
+Finished jobid: 1 (Rule: summary_report)
+4 of 5 steps (80%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:31:42 2026]
+localrule all:
+    input: results/summary_report.md
+    jobid: 0
+    reason: Input files updated by another job: results/summary_report.md
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:31:42 2026]
+Finished jobid: 0 (Rule: all)
+5 of 5 steps (100%) done
+Complete log(s): /Users/christinaxu/Practical-Computing/lab5-scalable-workflow/.snakemake/log/2026-11-11T013137.584661.snakemake.log
+Elapsed time: 0:00:04.816082

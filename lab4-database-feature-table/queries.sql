@@ -53,3 +53,5 @@ FROM patients AS p
 LEFT JOIN samples AS s
     ON s.patient_id = p.patient_id
 ORDER BY p.patient_id;
+-- Lab 5: comment added to test partial re-run
+-- Lab 5: comment added to test partial re-run

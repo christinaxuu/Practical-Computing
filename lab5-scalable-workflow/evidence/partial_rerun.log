@@ -2,8 +2,8 @@ Assuming unrestricted shared filesystem usage.
 
 SNAKEMAKE
 =========
-  Date: 2026-11-11 00:42:54
-  Workflow ID: fde78336-6d6d-4976-b3bf-b72752381f9c
+  Date: 2026-11-11 01:36:22
+  Workflow ID: 05d4d3c9-9b4d-499b-b8fa-b28222d820a6
   Platform: macOS-15.6.1-arm64-arm-64bit
   Host: Christinas-MacBook-Pro.local
   User: christinaxu
@@ -18,4 +18,68 @@ SNAKEMAKE
   Config MD5: 99914b932bd37a50b983c5e7c90ae93b
 
 Building DAG of jobs...
-Nothing to be done (all requested files are present and up to date).
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+patient_features        1
+combine_tables          1
+summary_report          1
+all                     1
+total                   4
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:36:22 2026]
+localrule patient_features:
+    input: ../lab4-database-feature-table/data/cohort.db, ../lab4-database-feature-table/queries.sql
+    output: results/patient_features.tsv
+    jobid: 4
+    reason: Updated input files: ../lab4-database-feature-table/queries.sql
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:36:26 2026]
+Finished jobid: 4 (Rule: patient_features)
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:36:26 2026]
+localrule combine_tables:
+    input: results/clean_samples.tsv, results/patient_features.tsv
+    output: results/combined_table.tsv
+    jobid: 2
+    reason: Input files updated by another job: results/patient_features.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:36:26 2026]
+Finished jobid: 2 (Rule: combine_tables)
+2 of 4 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:36:26 2026]
+localrule summary_report:
+    input: results/combined_table.tsv
+    output: results/summary_report.md
+    jobid: 1
+    reason: Input files updated by another job: results/combined_table.tsv
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:36:26 2026]
+Finished jobid: 1 (Rule: summary_report)
+3 of 4 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 11 01:36:26 2026]
+localrule all:
+    input: results/summary_report.md
+    jobid: 0
+    reason: Input files updated by another job: results/summary_report.md
+    resources: tmpdir=/var/folders/6g/190n47qj7hv31m0sfgjf4sk80000gn/T
+[Wed Nov 11 01:36:26 2026]
+Finished jobid: 0 (Rule: all)
+4 of 4 steps (100%) done
+Complete log(s): /Users/christinaxu/Practical-Computing/lab5-scalable-workflow/.snakemake/log/2026-11-11T013622.615092.snakemake.log
+Elapsed time: 0:00:04.147834
