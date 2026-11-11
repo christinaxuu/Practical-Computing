@@ -55,14 +55,14 @@ This executes the full DAG from a clean state and writes the final outputs under
 
 ## Partial re-run check
 
-After the pipeline has run, change a single upstream input and dry-run the workflow to confirm that only the affected downstream jobs rerun:
+After the pipeline has run, change the contents of one upstream input and run again:
 
 ```bash
-touch ../lab3-parsing-messy-data/data/messy_samples.csv
-snakemake --cores 1 -n results/summary_report.md
+echo "-- Lab 5: comment added to test partial re-run" >> ../lab4-database-feature-table/queries.sql
+snakemake --cores 1
 ```
 
-The dry run should show only the rules downstream of the updated raw input being scheduled, rather than the whole workflow.
+Only patient_features, combine_tables, and summary_report rerun; clean_samples is skipped because its input did not change. Note: touch alone does not trigger a re-run in Snakemake 9, because the file contents are unchanged.
 
 ## Evidence
 
@@ -73,7 +73,7 @@ The project includes saved evidence in `evidence/` for:
 
 ## AI usage
 
-AI assistance was used to help draft the Snakemake workflow structure and the Python wrappers for data cleaning, SQL extraction, and reporting. The logic was reviewed line by line before execution, and the workflow definitions are explicit about every input and output.
+GitHub Copilot (agent mode) wrote the Snakemake workflow and the Python scripts, and Claude helped me understand and test it. See AI_USAGE.md for details.
 
 ## Notes
 
